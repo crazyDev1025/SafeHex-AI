@@ -13117,6 +13117,14 @@ var Ne = we(l.div),
                         "--framer-text-color": "var(--token-a63000f8-e4b4-4f13-b0d1-a9e8e0a6c495, rgba(255, 255, 255, 0.7))"
                       },
                       children: "Scams, silent approvals, and hidden drainers are stealing millions daily."
+                    }), e("p", {
+                      style: {
+                        "--framer-letter-spacing": "-0.02em",
+                        "--framer-line-height": "1.6em",
+                        "--framer-text-alignment": "center",
+                        "--framer-text-color": "var(--token-a63000f8-e4b4-4f13-b0d1-a9e8e0a6c495, rgba(255, 255, 255, 0.7))"
+                      },
+                      children: "CA: 0xcomingsoon"
                     })]
                   }),
                   className: "framer-6vu2p1",
@@ -13421,7 +13429,7 @@ var Ne = we(l.div),
               "data-framer-name": "Photo 2025-06-26 20.26.17",
               transformTemplate: Fe
             }), L() && e(J, {
-              href: "https://t.me/UseHexly",
+              href: "https://t.me/SafeHexAI",
               motionChild: !0,
               nodeId: "ibarHKdWz",
               openInNewTab: !0,
@@ -13523,7 +13531,7 @@ var Ne = we(l.div),
                 })]
               })
             }), E() && e(J, {
-              href: "https://t.me/UseHexly",
+              href: "https://t.me/SafeHexAI",
               motionChild: !0,
               nodeId: "Yry6nMY0y",
               openInNewTab: !0,
