@@ -7771,7 +7771,7 @@ oe($e, [{
     url: "https://fonts.gstatic.com/s/geist/v3/gyBhhwUxId8gMGYQMKR3pzfaWI_RruM4mJPby1QNtA.woff2",
     weight: "500"
   }]
-}], {
+}], { 
   supportsExplicitInterCodegen: !0
 });
 var Ei = ["h7L4KzsxR", "wHXCPOz6X", "wx3iHyu8E"],
