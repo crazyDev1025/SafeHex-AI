@@ -1,0 +1,161 @@
+import{jsx as _jsx,jsxs as _jsxs}from"react/jsx-runtime";import*as React
+from"react";import{motion,useInView}from"framer-motion";// --- HOOK ДЛЯ
+ВИЗНАЧЕННЯ РОЗМІРУ ВІКНА --- // Цей хук допоможе нам визначити, чи це мобільна
+версія function
+useWindowSize(){const[size,setSize]=React.useState([0,0]);React.useLayoutEffect(()=>{function
+updateSize(){setSize([window.innerWidth,window.innerHeight]);}window.addEventListener("resize",updateSize);updateSize();return()=>window.removeEventListener("resize",updateSize);},[]);return
+size;}// --- ІКОНКИ ДЛЯ КОЖНОГО КРОКУ --- const
+Step2Icon=()=>/*#__PURE__*/_jsxs("svg",{width:"24",height:"24",viewBox:"0 0 512
+512",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M466.582
+444.603V149.967h-81.474c0.033-1.586 0.055-3.17 0.055-4.753
+0-39.593-10.268-73.984-29.693-99.455C332.641 15.823 298.244 0 256 0s-76.641
+15.823-99.472 45.759c-19.425 25.471-29.693 59.862-29.693 99.455 0 1.583 0.021
+3.167 0.055
+4.753H45.418v294.636h166.833v34.006H169.8V512H342.2v-33.391h-42.45v-34.006H466.582z
+M382.003 183.358h51.188V351.49H313.253V308.31C348.96 282.645 373.62 234.405
+382.003 183.358z M272.696 34.488c8.46 1.158 16.294 3.231 23.481 6.216l-12.758
+33.972-10.723 4.643V34.488z M272.696
+267.817h18.509v-33.391h-18.509V115.704l36.999-16.016l14.693-39.125c1.571 1.734
+3.084 3.546 4.532 5.445c1.282 1.681 2.494 3.452 3.675 5.261l-16.096 42.86l31.26
+11.739l2.193-5.838c1.19 8.055 1.821 16.475 1.821 25.183c0 36.303-10.701
+75.03-28.624 103.595c-17.119 27.282-35.784 38.489-50.453 42.805V267.817z
+M279.861 324.374v27.117H232.14v-27.117c7.643 2.028 15.606 3.113 23.86
+3.113S272.217 326.403 279.861 324.374z M239.304
+34.488v44.831l-10.723-4.641-12.758-33.973C223.012 37.719 230.844 35.644 239.304
+34.488z M162.049 120.033l2.193 5.838l31.26-11.739l-16.096-42.86c1.181-1.811
+2.393-3.581 3.675-5.261c1.448-1.899 2.962-3.711 4.533-5.445l14.693 39.125l36.996
+16.014v118.723h-18.509v33.391h18.509v23.798c-14.668-4.316-33.335-15.524-50.453-42.805c-17.923-28.566-28.624-67.292-28.624-103.595C160.228
+136.508 160.859 128.088 162.049 120.033z M78.809 183.358h51.188c8.383 51.046
+33.043 99.287 68.75 124.951v43.181H78.809V183.358z M266.358
+478.609h-20.716v-34.006h20.716V478.609z M78.809
+411.212v-26.33h354.383v26.33H78.809z",fill:"#4F6AFB"}),/*#__PURE__*/_jsx("path",{d:"M256
+387.689c-4.868 0-8.807 3.893-8.807 8.703c0 4.81 3.939 8.703 8.807 8.703c4.867 0
+8.807-3.893 8.807-8.703C264.807 391.582 260.867 387.689 256
+387.689z",fill:"#a7b3ff"}),/*#__PURE__*/_jsx("circle",{cx:"309.66",cy:"164.719",r:"22.804",fill:"#a7b3ff"}),/*#__PURE__*/_jsx("circle",{cx:"202.329",cy:"164.719",r:"22.804",fill:"#a7b3ff"})]});const
+Step3Icon=()=>/*#__PURE__*/_jsxs("svg",{width:"24",height:"24",viewBox:"0 0 1024
+1024",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M906.3
+557.6c-1.1 11-11.2 16.5-19.8 21.5-8 4.6-16 9.3-23.9 13.9-12.8 7.4-25.5 14.8-38.3
+22.2-16 9.3-31.9 18.6-47.9 27.8-17.6 10.2-35.2 20.5-52.9 30.7-17.7 10.3-35.4
+20.6-53.2 30.9-16.3 9.5-32.5 18.9-48.8 28.4-13.3 7.7-26.5 15.4-39.8 23.1-8.7
+5-17.4 10.1-26.1 15.1-6.6 3.8-12.8 7.6-20.3 9.8-19.5 5.6-41.1
+3.7-58.7-6.5-6.3-3.7-12.7-7.3-19-11-11.6-6.7-23.1-13.3-34.7-20-15.2-8.8-30.4-17.6-45.6-26.3-17.3-10-34.7-20-52-30-17.9-10.3-35.8-20.7-53.7-31-16.9-9.8-33.8-19.5-50.8-29.3L177.6
+602c-10.3-6-20.7-11.9-31-17.9-4.7-2.7-9.4-5.4-14.1-8.2-7.4-4.3-14.7-11.1-14.7-20.3
+0 8.4 0 16.8-0.1 25.3 0 3-0.2 6.1 0 9.2 0.6 8.1 7 14.4 13.7 18.4 4.1 2.5 8.3 4.8
+12.5 7.2 10.8 6.2 21.6 12.5 32.4 18.7 15.6 9 31.1 18 46.7 27 18.5 10.7 37.1 21.4
+55.6 32.1 19.3 11.2 38.6 22.3 58 33.5 18.4 10.6 36.7 21.2 55.1 31.8 15.3 8.8
+30.5 17.6 45.8 26.4 10.3 6 20.7 11.9 31 17.9 6 3.4 11.9 7.3 18.4 9.7 20.3 7.4
+44.1 5.8 62.8-5.1 7.1-4.1 14.2-8.3 21.3-12.4 13.1-7.6 26.2-15.2 39.2-22.8
+17.1-9.9 34.1-19.8 51.2-29.8 19.1-11.1 38.2-22.2 57.2-33.3l57.3-33.3c17.1-10
+34.2-19.9 51.4-29.9 13.3-7.7 26.6-15.4 39.9-23.2 7.3-4.3 14.7-8.5 22-12.8
+2.2-1.3 4.5-2.6 6.6-4.1 5.6-4.2 10-10 10.1-17.3 0.1-3.7 0-7.3 0-11 0-7.3 0-14.7
+0.1-22 0.4 0.8 0.3 1.3 0.3 1.8-0.1 0.3 0-0.2 0 0zM906.4
+556.1z",fill:"#a7b3ff",opacity:"0.7"}),/*#__PURE__*/_jsx("path",{d:"M892
+536.1c19 11 19.1 28.9 0.2 39.9L547.9 776.1c-18.9 11-49.8 11-68.8 0L132.3
+576c-19-11-19.1-28.9-0.2-39.9L476.5 336c18.9-11 49.8-11 68.8 0L892
+536.1z",fill:"#4F6AFB"})]});const
+Step4Icon=()=>/*#__PURE__*/_jsxs("svg",{width:"24",height:"24",viewBox:"0 0 24
+24",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M15.197
+3.35462C16.8703 1.67483 19.4476 1.53865 20.9536 3.05046C22.4596 4.56228 22.3239
+7.14956 20.6506 8.82935L18.2268 11.2626M10.0464 14C8.54044 12.4882 8.67609
+9.90087 10.3494 8.22108L12.5
+6.06212",stroke:"#a7b3ff",strokeWidth:"1.5",strokeLinecap:"round"}),/*#__PURE__*/_jsx("path",{d:"M13.9536
+10C15.4596 11.5118 15.3239 14.0991 13.6506 15.7789L11.2268 18.2121L8.80299
+20.6454C7.12969 22.3252 4.55237 22.4613 3.0464 20.9495C1.54043 19.4377 1.67609
+16.8504 3.34939 15.1706L5.77323
+12.7373",stroke:"#4F6AFB",strokeWidth:"1.5",strokeLinecap:"round"})]});const
+Step5Icon=()=>/*#__PURE__*/_jsx("svg",{width:"24",height:"24",viewBox:"0 0 512
+512",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:/*#__PURE__*/_jsx("path",{d:"M256.001
+0L29.89 130.537c0 47.476 4.506 88.936 12.057 125.463C88.61 481.721 256.001 512
+256.001 512s167.389-30.279 214.053-256c7.551-36.527 12.057-77.986
+12.057-125.463L256.001 0z M256.118
+466.723c-0.035-0.012-0.082-0.028-0.117-0.039v-47.672V256H140.77H91.122c-6.67-29.738-11.109-63.506-12.394-101.93L255.999
+51.728h0.002v51.73V256h115.27h49.625C385.636 413.404 287.327 456.774 256.118
+466.723z",fill:"#4F6AFB"})});const
+Step6Icon=()=>/*#__PURE__*/_jsxs("svg",{width:"24",height:"24",viewBox:"0 0 24
+24",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M12
+3V16M12 16L16 11.625M12 16L8
+11.625",stroke:"#a7b3ff",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round"}),/*#__PURE__*/_jsx("path",{d:"M15
+21H9C6.17157 21 4.75736 21 3.87868 20.1213C3 19.2426 3 17.8284 3 15M21 15C21
+17.8284 21 19.2426 20.1213 20.1213C19.8215 20.4211 19.4594 20.6186 19
+20.7487",stroke:"#4F6AFB",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round"})]});//
+--- ДАНІ ДЛЯ КРОКІВ --- const stepsData=[{step:2,title:"Instant AI-Powered Risk
+Analysis",subtitle:"Hexly generates your HexScore™ (0–100) and evaluates
+criteria.",details:["Smart contract approvals","Privacy exposures","Scam
+interactions","Gas spikes / bot patterns"],icon:Step2Icon},{step:3,title:"View
+Risk Factors & Wallet Activity",subtitle:"Gain instant visibility into wallet
+behavior.",details:["Exposed metadata & dApp approvals","Flagged
+interactions","Last transaction timestamp","Total on-chain volume","Average gas
+usage"],icon:Step3Icon},{step:4,title:"Dive Into Holdings &
+Connections",subtitle:"View token balances and connected dApps.",details:["Token
+balances (ETH, USDC, HEXY, etc.)","Connected dApps (Uniswap, Compound,
+etc.)","Color-coded trust levels"],icon:Step4Icon},{step:5,title:"Actionable
+Security Fixes",subtitle:"Hexly helps you not just see the problem, but solve
+it.",details:["Revoke malicious approvals","Enable privacy protection","Adjust
+risky behaviors"],icon:Step5Icon},{step:6,title:"Download, Share, or
+Monitor",subtitle:"Export a PDF security report.",details:["Share with
+partners","Keep for your records","Monitor wallet health over
+time"],icon:Step6Icon}];// --- ДОДАТКОВІ АНІМОВАНІ КОМПОНЕНТИ --- const
+AnimatedBars=()=>{const bars=[{label:"<50",risk:"HIGH
+RISK",color:"#FF4E42",width:.4},{label:"50–94",risk:"LOW
+RISK",color:"#FFC72C",width:.7},{label:"95–100",risk:"SECURE",color:"#22C55E",width:.95}];const
+ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-50px"});return
+/*#__PURE__*/_jsxs("div",{ref:ref,children:[/*#__PURE__*/_jsx("h4",{style:{fontSize:16,margin:"0
+0 16px 0",color:"rgba(255, 255, 255, 0.9)"},children:"HexScore™
+Levels"}),bars.map((bar,i)=>/*#__PURE__*/_jsxs("div",{style:{marginBottom:i<bars.length-1?20:0},children:[/*#__PURE__*/_jsxs("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8},children:[/*#__PURE__*/_jsx("span",{style:{color:"rgba(255,255,255,0.7)",fontWeight:600,fontSize:14},children:bar.label}),/*#__PURE__*/_jsx("span",{style:{color:bar.color,fontWeight:700,fontSize:12,letterSpacing:.5},children:bar.risk})]}),/*#__PURE__*/_jsx("div",{style:{background:"rgba(0,0,0,0.3)",borderRadius:8,height:16,width:"100%",overflow:"hidden"},children:/*#__PURE__*/_jsx(motion.div,{initial:{width:0},animate:isInView?{width:`${bar.width*100}%`}:{width:0},transition:{duration:1.2,delay:isInView?i*.2:0,type:"spring",stiffness:50,damping:15},style:{height:"100%",background:bar.color,borderRadius:8}})})]},i))]});};const
+AnimatedList=({items})=>{const ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-50px"});return
+/*#__PURE__*/_jsx("ul",{ref:ref,style:{listStyle:"none",padding:0,margin:0,display:"flex",flexDirection:"column",gap:12},children:items.map((item,index)=>/*#__PURE__*/_jsxs(motion.li,{initial:{opacity:0,x:-20},animate:isInView?{opacity:1,x:0}:{},transition:{duration:.5,delay:index*.1},style:{display:"flex",alignItems:"center",gap:12,fontSize:15,color:"rgba(255,
+255, 255,
+0.8)"},children:[/*#__PURE__*/_jsx("svg",{width:"16",height:"16",viewBox:"0 0 24
+24",fill:"none",children:/*#__PURE__*/_jsx("path",{d:"M12 2L15 9H9L12
+2Z",fill:"#4F6AFB",opacity:"0.6"})}),/*#__PURE__*/_jsx("span",{children:item})]},index))});};const
+AnimatedConnections=()=>{const
+connections=[{name:"Uniswap",status:"safe"},{name:"Compound",status:"safe"},{name:"Malicious
+dApp",status:"danger"}];const ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-50px"});return
+/*#__PURE__*/_jsx("div",{ref:ref,children:connections.map((conn,i)=>/*#__PURE__*/_jsxs(motion.div,{initial:{opacity:0,y:20},animate:isInView?{opacity:1,y:0}:{},transition:{duration:.5,delay:i*.15},style:{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px
+0",borderBottom:i<connections.length-1?"1px solid rgba(79, 106, 251,
+0.2)":"none"},children:[/*#__PURE__*/_jsx("span",{style:{fontSize:15,fontWeight:500},children:conn.name}),/*#__PURE__*/_jsxs("div",{style:{display:"flex",alignItems:"center",gap:8},children:[/*#__PURE__*/_jsx("div",{style:{width:10,height:10,borderRadius:"50%",background:conn.status==="safe"?"#22C55E":"#FF4E42"}}),/*#__PURE__*/_jsx("span",{style:{fontSize:14,color:conn.status==="safe"?"#22C55E":"#FF4E42"},children:conn.status==="safe"?"Safe":"Revoke"})]})]},i))});};const
+AnimatedToggles=({items})=>{const ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-50px"});return
+/*#__PURE__*/_jsx("div",{ref:ref,children:items.map((item,i)=>{const[isOn,setIsOn]=React.useState(false);return
+/*#__PURE__*/_jsxs(motion.div,{initial:{opacity:0,x:-20},animate:isInView?{opacity:1,x:0}:{},transition:{duration:.5,delay:i*.15},style:{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px
+0",borderBottom:i<items.length-1?"1px solid rgba(79, 106, 251,
+0.2)":"none"},children:[/*#__PURE__*/_jsx("span",{style:{fontSize:15,fontWeight:500},children:item}),/*#__PURE__*/_jsx("div",{onClick:()=>setIsOn(!isOn),style:{width:44,height:24,background:isOn?"#4F6AFB":"rgba(0,0,0,0.3)",borderRadius:12,padding:2,cursor:"pointer",display:"flex",justifyContent:isOn?"flex-end":"flex-start"},children:/*#__PURE__*/_jsx(motion.div,{layout:true,transition:{type:"spring",stiffness:700,damping:30},style:{width:20,height:20,background:"white",borderRadius:"50%"}})})]},i);})});};//
+--- КОМПОНЕНТ КАРТКИ КРОКУ --- const
+StepCard=({data,isMobile})=>{const{step,title,subtitle,details,icon:StepIcon}=data;const
+renderContent=()=>{switch(step){case 2:return
+/*#__PURE__*/_jsxs("div",{style:{display:"flex",flexDirection:isMobile?"column":"row",gap:"28px",marginTop:"20px"},children:[/*#__PURE__*/_jsx("div",{style:{flex:1.2},children:/*#__PURE__*/_jsx(AnimatedList,{items:details})}),/*#__PURE__*/_jsx("div",{style:{flex:1,borderLeft:isMobile?"none":"1px
+solid rgba(79, 106, 251, 0.2)",borderTop:isMobile?"1px solid rgba(79, 106, 251,
+0.2)":"none",paddingLeft:isMobile?0:"28px",paddingTop:isMobile?"28px":0,marginTop:isMobile?"20px":0},children:/*#__PURE__*/_jsx(AnimatedBars,{})})]});case
+3:return /*#__PURE__*/_jsx(AnimatedList,{items:details});case 4:return
+/*#__PURE__*/_jsx(AnimatedConnections,{});case 5:return
+/*#__PURE__*/_jsx(AnimatedToggles,{items:details});case 6:return
+/*#__PURE__*/_jsx(AnimatedList,{items:details});default:return null;}};return
+/*#__PURE__*/_jsx(motion.div,{style:{width:"100%",color:"#fff",position:"relative"},children:/*#__PURE__*/_jsxs(motion.div,{whileHover:{y:isMobile?0:-8},transition:{type:"spring",stiffness:300},style:{background:"rgba(16,
+21, 40, 0.75)",backdropFilter:"blur(16px)",border:"1px solid rgba(79, 106, 251,
+0.2)",borderRadius:24,padding:"28px",boxShadow:"0 15px 40px -15px
+rgba(0,0,0,0.4)",overflow:"hidden",position:"relative"},children:[/*#__PURE__*/_jsx("div",{style:{position:"absolute",top:0,left:0,right:0,bottom:0,background:"radial-gradient(circle
+at top left, rgba(79, 106, 251, 0.15), transparent
+40%)",pointerEvents:"none"}}),/*#__PURE__*/_jsxs("div",{style:{display:"flex",alignItems:"center",gap:16,marginBottom:20},children:[/*#__PURE__*/_jsx(motion.div,{style:{background:"rgba(79,
+106, 251, 0.1)",borderRadius:"50%",padding:10,display:"flex",border:"1px solid
+rgba(79, 106, 251,
+0.2)"},children:/*#__PURE__*/_jsx(StepIcon,{})}),/*#__PURE__*/_jsxs("div",{children:[/*#__PURE__*/_jsxs("div",{style:{fontSize:14,fontWeight:600,color:"rgba(255,
+255, 255, 0.5)",marginBottom:"4px"},children:["STEP
+",step]}),/*#__PURE__*/_jsx("h3",{style:{fontSize:22,margin:0,lineHeight:1.2,color:"rgba(255,
+255, 255,
+0.95)"},children:title})]})]}),/*#__PURE__*/_jsx("p",{style:{fontSize:15,color:"rgba(255,
+255, 255, 0.7)",lineHeight:1.6,margin:"0 0 20px
+0",minHeight:45},children:subtitle}),renderContent()]})});};// --- ГОЛОВНИЙ
+КОМПОНЕНТ --- export default function HowItWorks(){const
+ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,amount:.1});const[width]=useWindowSize();const
+isMobile=width<960;const
+containerVariants={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.2}}};const
+itemVariants={hidden:{opacity:0,y:50},visible:{opacity:1,y:0,transition:{duration:.8,ease:[.16,1,.3,1]}}};return
+/*#__PURE__*/_jsx("div",{style:{padding:"100px
+20px",display:"flex",justifyContent:"center",position:"relative"},children:/*#__PURE__*/_jsx(motion.div,{ref:ref,initial:"hidden",animate:isInView?"visible":"hidden",variants:containerVariants,style:{display:"flex",flexDirection:"column",alignItems:"center",gap:"40px",width:"100%",maxWidth:isMobile?"100%":480},children:stepsData.map(item=>/*#__PURE__*/_jsx(motion.div,{variants:itemVariants,style:{width:"100%"},children:/*#__PURE__*/_jsx(StepCard,{data:item,isMobile:isMobile})},item.step))})});}
+export const __FramerMetadata__ =
+{"exports":{"default":{"type":"reactComponent","name":"HowItWorks","slots":[],"annotations":{"framerContractVersion":"1"}},"__FramerMetadata__":{"type":"variable"}}}
+//# sourceMappingURL=./Step_1.map

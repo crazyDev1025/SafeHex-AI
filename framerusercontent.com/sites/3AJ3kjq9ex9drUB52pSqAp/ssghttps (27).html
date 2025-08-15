@@ -1,0 +1,97 @@
+import{jsx as _jsx,jsxs as _jsxs}from"react/jsx-runtime";import*as React
+from"react";import{motion,useInView}from"framer-motion";// --- HOOK ДЛЯ
+ВИЗНАЧЕННЯ РОЗМІРУ ВІКНА --- function
+useWindowSize(){const[size,setSize]=React.useState([0,0]);React.useLayoutEffect(()=>{function
+updateSize(){setSize([window.innerWidth,window.innerHeight]);}window.addEventListener("resize",updateSize);updateSize();return()=>window.removeEventListener("resize",updateSize);},[]);return
+size;}// --- НОВІ ІКОНКИ ДЛЯ КАРТОК --- const
+PhishingIcon=()=>/*#__PURE__*/_jsxs("svg",{width:"28",height:"28",viewBox:"0 0
+1024
+1024",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M850.4
+518.2c0-50.5 17.3-98.9 48.5-137.6-47.3 3.8-89.3 31.5-111.5 74.2-0.1 0.3-2 3.1-3
+4.2-6.9 7.1-18.2 7.4-25.4
+0.5-25.4-24.5-65.3-45.8-115.2-61.5-58.7-18.5-127.7-28.3-199.5-28.3-56.1 0-109.6
+5.8-159.1 17.3-6.8 1.6-13.4 3.2-19.9 5 56.3 74.4 56.3 178.1 0.1 252.5 25.3 6.9
+52.4 12.2 80.9 16 31.7 4.2 64.7 6.3 97.9 6.3 41.8 0 82.7-3.3 121.6-9.9 84.7-14.3
+155.1-43.4 193.1-80 7.1-6.9 18.5-6.7 25.4 0.5 1 1 1.8 2.1 2.5 3.3 0.2 0.3 0.4
+0.6 0.5 1 0 0.1 0.1 0.1 0.1 0.2 22.1 42.6 64.1 70.2 111.3
+74-31-38.8-48.3-87.2-48.3-137.7z",fill:"#4F6AFB"}),/*#__PURE__*/_jsx("path",{d:"M228.6
+632.9c57.6-65.4 57.6-164.1-0.1-229.5-79.5 28.3-128.4 70.8-128.4 114.7 0 43.6
+47.8 86.1 128.5 114.8z",fill:"#a7b3ff",opacity:"0.7"})]});const
+RevokeIcon=()=>/*#__PURE__*/_jsxs("svg",{width:"28",height:"28",viewBox:"0 0
+1024
+1024",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M442.7
+237.7c1.6-0.9 3.2-1.3 4.5-0.9l3.5 1c1 0.2 20.7 4.5 51.6 1 30.1-3.9 58.7-19.5
+60.2-20.3l5.4-3.1c4.2-2.4 7.5-0.5 7.5 4.3l0.4 142.5c0.2 76.1-85.5 206.5-131.9
+233.3-46.4 26.8-132.5-4.5-132.8-80.5l-0.4-143.5c0-4.8 3.3-10.6
+7.5-13l5.4-3.1c1.5-0.9 30.1-17.4 60.1-49.2 30.9-32.3 50.4-59.2
+51.5-60.6l3.3-4.4c1.4-1.4 2.8-2.7
+4.2-3.5z",fill:"#4F6AFB"}),/*#__PURE__*/_jsx("path",{d:"M892 536.1c19 11 19.1
+28.9 0.2 39.9L547.9 776.1c-18.9 11-49.8 11-68.8 0L132.3
+576c-19-11-19.1-28.9-0.2-39.9L476.5 336c18.9-11 49.8-11 68.8 0L892
+536.1z",fill:"#a7b3ff",opacity:"0.3"})]});const
+HexScoreIcon=()=>/*#__PURE__*/_jsxs("svg",{width:"28",height:"28",viewBox:"0 0
+399.997
+399.997",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[/*#__PURE__*/_jsx("path",{d:"M366.684
+24.971H33.316C14.945 24.971 0 39.917 0 58.288V275.56c0 18.371 14.945 33.317
+33.316 33.317h107.412 l-20.387 44.955c-2.105 4.643-1.709 10.037 1.053
+14.321c2.762 4.285 7.51 6.873 12.607 6.873h131.996c0.006 0 0.014 0 0.02 0 c8.285
+0 15-6.715 15-15c0-2.493-0.605-4.848-1.686-6.916l-20.062-44.233h107.412c18.371 0
+33.316-14.946 33.316-33.317V58.288 C400 39.917 385.055 24.971 366.684 24.971z
+M370 275.561c0 1.829-1.488 3.316-3.316 3.316H235.998h-71.996H33.316 c-1.828
+0-3.316-1.487-3.316-3.316V58.288c0-1.829 1.488-3.317 3.316-3.317h333.367c1.828 0
+3.316 1.488 3.316 3.317L370 275.561 L370
+275.561z",fill:"#a7b3ff",opacity:"0.7"}),/*#__PURE__*/_jsx("path",{d:"M320.624
+69.329c-16.198 0-29.374 13.178-29.374 29.376c0 1.495 0.114 2.964 0.33 4.4l-68.61
+40.032 c-5.35-5.575-12.864-9.057-21.184-9.057c-10.379 0-19.513 5.416-24.737
+13.564l-68.428-26.781 c0.082-0.889 0.129-1.787
+0.129-2.696c0-16.198-13.176-29.377-29.374-29.377S50 101.969 50 118.167 c0 16.198
+13.178 29.375 29.376 29.375c8.132 0 15.501-3.324 20.827-8.681l72.457 28.359
+c1.854 14.425 14.204 25.611 29.126 25.611c16.198 0 29.376-13.178
+29.376-29.375c0-0.704-0.037-1.401-0.084-2.092l69.938-40.808 c5.203 4.674 12.076
+7.525 19.606 7.525c16.198 0 29.376-13.178 29.376-29.376C349.999 82.507 336.822
+69.329 320.624 69.329z M79.376 127.714c-5.265 0-9.547-4.283-9.547-9.547c0-5.265
+4.282-9.548 9.547-9.548c5.262 0 9.546 4.283 9.546 9.548 C88.922 123.431 84.638
+127.714 79.376 127.714z M201.786 173.002c-5.266 0-9.547-4.282-9.547-9.546
+c0-5.265 4.281-9.547 9.547-9.547c5.266 0 9.547 4.283 9.547 9.547C211.333 168.72
+207.052 173.002 201.786 173.002z M320.624 108.252c-5.263
+0-9.548-4.283-9.548-9.547c0-5.264 4.285-9.548 9.548-9.548c5.264 0 9.547 4.284
+9.547 9.548 C330.171 103.969 325.888 108.252 320.624
+108.252z",fill:"#4F6AFB"})]});// --- ДАНІ ДЛЯ КАРТОК --- const
+featuresData=[{icon:PhishingIcon,title:"Phishing Detection",description:"Flags
+fake links, fake airdrops and wallet scapers in real
+time."},{icon:RevokeIcon,title:"Safe Revoke Tool",description:"One click
+clean-up of malicious approvals and dust
+tok."},{icon:HexScoreIcon,title:"HexScore™",description:"AI scans wallet,
+assigns risk score based on approvals, activity, dApps."}];// --- КОМПОНЕНТ
+КАРТКИ --- const
+FeatureCard=({feature,isMobile})=>{const{icon:Icon,title,description}=feature;return
+/*#__PURE__*/_jsx(motion.div,{whileHover:{y:isMobile?0:-8,scale:isMobile?1:1.03},transition:{type:"spring",stiffness:300},style:{width:isMobile?"calc(100vw
+-
+80px)":350,color:"#fff",position:"relative",flexShrink:0},children:/*#__PURE__*/_jsxs("div",{style:{background:"rgba(16,
+21, 40, 0.75)",backdropFilter:"blur(16px)",border:"1px solid rgba(79, 106, 251,
+0.2)",borderRadius:24,padding:"28px",boxShadow:"0 15px 40px -15px
+rgba(0,0,0,0.4)",position:"relative",display:"flex",flexDirection:"column",justifyContent:"flex-start",minHeight:280},children:[/*#__PURE__*/_jsx("div",{style:{position:"absolute",top:0,left:0,right:0,bottom:0,background:"radial-gradient(circle
+at top left, rgba(79, 106, 251, 0.15), transparent
+50%)",pointerEvents:"none"}}),/*#__PURE__*/_jsx("div",{style:{width:64,height:64,background:"rgba(79,
+106, 251,
+0.1)",borderRadius:"16px",display:"flex",alignItems:"center",justifyContent:"center",border:"1px
+solid rgba(79, 106, 251,
+0.2)",marginBottom:"24px"},children:/*#__PURE__*/_jsx(Icon,{})}),/*#__PURE__*/_jsx("h3",{style:{fontSize:24,margin:"0
+0 16px 0",color:"rgba(255, 255, 255,
+0.95)"},children:title}),/*#__PURE__*/_jsx("p",{style:{fontSize:16,color:"rgba(255,
+255, 255, 0.7)",lineHeight:1.6,margin:0},children:description})]})});};// ---
+ГОЛОВНИЙ КОМПОНЕНТ --- export default function FeatureCards(){const
+ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-150px"});const[width]=useWindowSize();const
+isMobile=width<768;const
+containerVariants={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.2,delayChildren:.3}}};const
+itemVariants={hidden:{opacity:0,y:50,scale:.9},visible:{opacity:1,y:0,scale:1,transition:{duration:.8,ease:[.16,1,.3,1]}}};return
+/*#__PURE__*/_jsx("div",{style:{padding:"100px
+0",fontFamily:"sans-serif"},children:/*#__PURE__*/_jsxs(motion.div,{ref:ref,variants:containerVariants,initial:"hidden",animate:isInView?"visible":"hidden",style:{display:"flex",flexDirection:isMobile?"row":"row",justifyContent:isMobile?"flex-start":"center",alignItems:"center",gap:"32px",width:"100%",maxWidth:1200,margin:"0
+auto",overflowX:isMobile?"auto":"visible",padding:isMobile?"0
+20px":"0",scrollbarWidth:"none"},className:"no-scrollbar",children:[/*#__PURE__*/_jsx("style",{children:`
+.no-scrollbar::-webkit-scrollbar { display: none; }
+`}),featuresData.map((feature,index)=>/*#__PURE__*/_jsx(motion.div,{variants:itemVariants,children:/*#__PURE__*/_jsx(FeatureCard,{feature:feature,isMobile:isMobile})},index))]})});}
+export const __FramerMetadata__ =
+{"exports":{"default":{"type":"reactComponent","name":"FeatureCards","slots":[],"annotations":{"framerContractVersion":"1"}},"__FramerMetadata__":{"type":"variable"}}}
+//# sourceMappingURL=./Plashki_radara.map

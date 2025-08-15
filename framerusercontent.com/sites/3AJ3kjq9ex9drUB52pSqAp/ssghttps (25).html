@@ -1,0 +1,43 @@
+import{jsx as _jsx,jsxs as _jsxs}from"react/jsx-runtime";import*as React
+from"react";import{motion,useInView}from"framer-motion";import{addPropertyControls,ControlType}from"framer";export
+function
+TokenomicsRing(props){const{size,strokeWidth,gapDegrees,glow}=props;const
+segments=[{name:"Marketing",percent:25,color:"#34C759"},{name:"Expansion",percent:25,color:"#007AFF"},{name:"Ecosystem
+Advancement",percent:30,color:"#FF3B30"},{name:"Protocol
+Sustenance",percent:20,color:"#FF9500"}];const center=size/2;const
+radius=(size-strokeWidth)/2;const circumference=2*Math.PI*radius;const
+totalGap=segments.length*gapDegrees;const totalDegrees=360-totalGap;let
+currentAngle=-90;const segmentArcs=segments.map((seg,i)=>{const
+angle=seg.percent/100*totalDegrees;const dash=angle/360*circumference;const
+gap=gapDegrees/360*circumference;const
+offset=currentAngle/360*circumference;currentAngle+=angle+gapDegrees;return{...seg,dash,gap,offset,delay:.2*i,angleStart:currentAngle-angle-gapDegrees,angleMid:currentAngle-angle/2-gapDegrees/2};});const
+ref=React.useRef(null);const
+isInView=useInView(ref,{once:true,margin:"-50px"});const[animatedDashes,setAnimatedDashes]=React.useState(segmentArcs.map(()=>0));React.useEffect(()=>{if(isInView){let
+timeouts=[];segmentArcs.forEach((seg,i)=>{timeouts.push(setTimeout(()=>{setAnimatedDashes(prev=>{const
+next=[...prev];next[i]=seg.dash;return
+next;});},seg.delay*1e3));});return()=>timeouts.forEach(t=>clearTimeout(t));}else{setAnimatedDashes(segmentArcs.map(()=>0));}},[isInView,size,strokeWidth,gapDegrees]);//
+Параметры для линий const straightLen=size*.13;const bendLen=size*.09;return
+/*#__PURE__*/_jsx("div",{ref:ref,style:{width:size,height:size,position:"relative"},children:/*#__PURE__*/_jsxs("svg",{width:size,height:size,viewBox:`0
+0 ${size}
+${size}`,style:{overflow:"visible",position:"absolute",top:0,left:0},children:[/*#__PURE__*/_jsx("circle",{cx:center,cy:center,r:radius,fill:"transparent",stroke:"rgba(0,0,0,0.25)",strokeWidth:strokeWidth}),segmentArcs.map((seg,i)=>/*#__PURE__*/_jsx(motion.circle,{cx:center,cy:center,r:radius,fill:"transparent",stroke:seg.color,strokeWidth:strokeWidth,strokeLinecap:"round",strokeDasharray:`${animatedDashes[i]}
+${circumference-animatedDashes[i]}`,strokeDashoffset:-seg.offset,style:{filter:`drop-shadow(0
+0 ${glow}px ${seg.color})`,transition:"stroke-dasharray 1s cubic-bezier(0.22, 1,
+0.36, 1)"}},seg.name)),segmentArcs.map((seg,i)=>{// Угол для линии — середина
+сегмента const angle=seg.angleMid;const rad=angle*Math.PI/180;// Точка на
+окружности (конец дуги) const x1=center+radius*Math.cos(rad);const
+y1=center+radius*Math.sin(rad);// Первая точка излома (радиальная часть) const
+x2=x1+straightLen*Math.cos(rad);const y2=y1+straightLen*Math.sin(rad);// Вторая
+точка излома (горизонтальная часть) const isRight=Math.cos(rad)>0;const
+x3=x2+(isRight?bendLen:-bendLen);const y3=y2;return
+/*#__PURE__*/_jsx(motion.polyline,{points:isInView?`${x1},${y1} ${x2},${y2}
+${x3},${y3}`:`${x1},${y1} ${x1},${y1}
+${x1},${y1}`,fill:"none",stroke:seg.color,strokeWidth:3,strokeLinejoin:"round",initial:false,animate:{points:isInView?`${x1},${y1}
+${x2},${y2} ${x3},${y3}`:`${x1},${y1} ${x1},${y1}
+${x1},${y1}`},transition:{delay:.8+seg.delay,duration:.7,type:"spring"},style:{filter:`drop-shadow(0
+0 6px
+${seg.color}88)`}},seg.name);})]})});}addPropertyControls(TokenomicsRing,{size:{title:"Size",type:ControlType.Number,defaultValue:350,min:100,max:1e3},strokeWidth:{title:"Stroke
+Width",type:ControlType.Number,defaultValue:14,min:2,max:100},gapDegrees:{title:"Gap
+Degrees",type:ControlType.Number,defaultValue:6,min:0,max:20},glow:{title:"Glow",type:ControlType.Number,defaultValue:8,min:0,max:30}});
+export const __FramerMetadata__ =
+{"exports":{"TokenomicsRing":{"type":"reactComponent","name":"TokenomicsRing","slots":[],"annotations":{"framerContractVersion":"1"}},"__FramerMetadata__":{"type":"variable"}}}
+//# sourceMappingURL=./AnimatedRing.map
