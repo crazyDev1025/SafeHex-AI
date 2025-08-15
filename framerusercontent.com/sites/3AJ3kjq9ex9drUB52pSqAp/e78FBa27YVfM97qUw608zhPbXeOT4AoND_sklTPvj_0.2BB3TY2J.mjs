@@ -1562,7 +1562,7 @@ function ur() {
       fontFamily: "sans-serif"
     },
     children: s(l.a, {
-      href: "https://x.com/UseHexly",
+      href: "https://x.com/SafeHexAI",
       target: "_blank",
       rel: "noopener noreferrer",
       style: r,
@@ -7561,7 +7561,7 @@ var Ci = {
         children: e(Ni, {
           value: Ci,
           children: e(J, {
-            href: "https://www.hexlyapp.com/",
+            href: "https://app.safehexai.org/",
             motionChild: !0,
             nodeId: "iEI2i1yIk",
             openInNewTab: !0,
@@ -8177,7 +8177,7 @@ var Pi = {
                   })
                 })
               }), e(J, {
-                href: "https://x.com/UseHexly",
+                href: "https://x.com/SafeHexAI",
                 motionChild: !0,
                 nodeId: "vZ6fLB_Bv",
                 openInNewTab: !0,
@@ -8215,7 +8215,7 @@ var Pi = {
                   })
                 })
               }), e(J, {
-                href: "https://t.me/HexlyPortal",
+                href: "https://t.me/SafeHexAI",
                 motionChild: !0,
                 nodeId: "ypqF10YWZ",
                 openInNewTab: !0,
@@ -8334,7 +8334,7 @@ var Pi = {
                       withExternalLayout: !0
                     })]
                   }), O() && e(J, {
-                    href: "https://t.me/HexlyPortal",
+                    href: "https://t.me/SafeHexAI",
                     motionChild: !0,
                     nodeId: "k5ddr1vJm",
                     openInNewTab: !0,
@@ -8562,7 +8562,7 @@ var Ki = {
         children: e(es, {
           value: Ki,
           children: e(J, {
-            href: "https://www.hexlyapp.com/",
+            href: "https://app.safehexai.org/",
             motionChild: !0,
             nodeId: "So04gD1yf",
             openInNewTab: !0,
@@ -13339,7 +13339,7 @@ var Ne = we(l.div),
                   children: e(qr, {
                     AL_NU982V: !1,
                     dlVBgpKLv: "Read me",
-                    GT109pdEG: "https://hexlys-organization.gitbook.io/hexly-ai-docs",
+                    GT109pdEG: "https://docs.safehexai.org",
                     height: "100%",
                     id: "yro6OjJjL",
                     layoutId: "yro6OjJjL",
@@ -13472,7 +13472,7 @@ var Ne = we(l.div),
                 })]
               })
             }), L() && e(J, {
-              href: "https://x.com/UseHexly",
+              href: "https://x.com/SafeHexAI",
               motionChild: !0,
               nodeId: "OOIOzzt7N",
               openInNewTab: !0,
@@ -13554,7 +13554,7 @@ var Ne = we(l.div),
                 })
               })
             }), E() && e(J, {
-              href: "https://x.com/UseHexly",
+              href: "https://x.com/SafeHexAI",
               motionChild: !0,
               nodeId: "jWwFOmUbR",
               openInNewTab: !0,
@@ -13987,7 +13987,7 @@ var Ne = we(l.div),
                 withExternalLayout: !0
               })
             }), e(J, {
-              href: "https://t.me/HexlyPortal",
+              href: "https://t.me/SafeHexAI",
               motionChild: !0,
               nodeId: "TpU2orfSs",
               openInNewTab: !0,
@@ -14753,7 +14753,7 @@ var Ne = we(l.div),
                 withExternalLayout: !0
               })
             }), e(J, {
-              href: "https://x.com/UseHexly",
+              href: "https://x.com/SafeHexAI",
               motionChild: !0,
               nodeId: "hM2kJBwSZ",
               openInNewTab: !0,
